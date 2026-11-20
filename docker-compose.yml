@@ -1,0 +1,15 @@
+services:
+  hossa-alert:
+    build: .
+    env_file: .env
+    volumes:
+      - hossa-alert-data:/data
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: 1m
+        max-file: "3"
+
+volumes:
+  hossa-alert-data:
